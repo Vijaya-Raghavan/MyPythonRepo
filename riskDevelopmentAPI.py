@@ -81,9 +81,17 @@ def deleteRiskProperties(riskId):
     resp = briteCoreService.deleteRiskProperties(riskId)
     return briteCoreUtil.getResponse(resp)
 
-@app.route('/risk/delete/<int:riskId>', methods = ['DELETE'])
+@app.route('/risk/<int:riskId>/delete', methods = ['DELETE'])
 def deleteRisk(riskId):
     resp = briteCoreService.deleteRisk(riskId)
+    return briteCoreUtil.getResponse(resp)
+
+@app.route('/risk/<int:riskId>/update', methods = ['PUT'])
+@accept('application/json')
+def deleteRisk(riskId):
+    data = request.get_json()
+    riskName = data['name']
+    resp = briteCoreService.updateRisk(riskId, riskName)
     return briteCoreUtil.getResponse(resp)
 
 if __name__ == '__main__':

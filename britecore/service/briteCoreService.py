@@ -130,12 +130,12 @@ class BriteCoreService():
             message = self.responseMessage.internalServerError()
         return message;
 
-    def updateRisk(self, riskId):
+    def updateRisk(self, riskId, riskName):
         message = None
         try:
             riskEntity = self.riskDao.findRisk(riskId)
             if riskEntity is not None:
-                self.riskDao.updateRisk(riskId)
+                self.riskDao.updateRisk(riskId, riskName)
                 message = self.responseMessage.riskUpdated()
             else:
                 message = self.responseMessage.riskNotExist()
