@@ -88,7 +88,7 @@ def deleteRisk(riskId):
 
 @app.route('/risk/<int:riskId>/update', methods = ['PUT'])
 @accept('application/json')
-def deleteRisk(riskId):
+def updateRisk(riskId):
     data = request.get_json()
     riskName = data['name']
     resp = briteCoreService.updateRisk(riskId, riskName)
