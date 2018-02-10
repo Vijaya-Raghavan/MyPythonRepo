@@ -12,4 +12,4 @@ insert into prop_type values(nextval('prop_type_id_seq'), 'DATE');
 insert into prop_type values(nextval('prop_type_id_seq'), 'ENUM');
 insert into prop_type values(nextval('prop_type_id_seq'), 'BOOLEAN');
 
-create table risk_prop(id integer primary key, risk_id integer references risk(id) not null, prop_name varchar(50) not null, prop_type_id number references prop_type(id) not null, prop_desc varchar(1000), prop_constraint varchar(200), prop_default_val varchar(200));
+create table risk_prop(id integer primary key, risk_id integer references risk(id) not null, prop_name varchar(50) not null, prop_type_id integer references prop_type(id) not null, prop_desc varchar(1000), prop_constraint varchar(200), prop_default_val varchar(200));
